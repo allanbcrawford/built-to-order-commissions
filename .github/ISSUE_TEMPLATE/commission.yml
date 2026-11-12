@@ -1,0 +1,68 @@
+name: Commission a build
+description: Suggest something for Built to Order to build with AI.
+title: "[Commission] "
+labels: ["commission", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the commission. Read the [submission terms](https://github.com/allanbcrawford/built-to-order-commissions/blob/main/SUBMISSION_TERMS.md) first.
+        To vote on a commission, give it a 👍 reaction. Please do not comment "+1".
+  - type: input
+    id: one_liner
+    attributes:
+      label: Your commission in one sentence
+      description: Keep it short. The best commissions become a YouTube poll option (65 characters).
+      placeholder: An app that tells me which houseplant needs water today
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve, and for whom?
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Software or hardware?
+      options:
+        - Software (web app, tool, bot, script)
+        - Hardware (a physical device)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: What does "done" look like?
+      description: What would you do with it on the first day?
+  - type: dropdown
+    id: hardware_funding
+    attributes:
+      label: For a larger hardware build, would you fund the build?
+      description: Allan funds small builds. Larger builds are funded up front by the person who suggested them, or by a pre-sale after a prototype video. Hardware ships to the US only.
+      options:
+        - Not a hardware build
+        - Yes, I could fund a larger build
+        - No, small build only
+  - type: dropdown
+    id: hosted
+    attributes:
+      label: Would you join the beta waitlist for a hosted version?
+      description: Hosted versions are only for waitlisted beta users, for a set term.
+      options:
+        - "Yes"
+        - "No"
+  - type: input
+    id: credit
+    attributes:
+      label: How should we credit you on screen?
+      placeholder: Your name, handle, or "anonymous"
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Submission terms
+      options:
+        - label: I agree to the submission terms. There is no payment. I get credit. The build is open source.
+          required: true
